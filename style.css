@@ -1,0 +1,794 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500px;
+}
+
+main {
+    margin-top: 220px;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+header {
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    max-width: 976px;
+    height: 70px;
+    width: 80%;
+    margin: 80px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 15px;
+    box-shadow: 0px 4px 7px 2px #cdcbcb6b;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    transition: top 0.9s ease-in-out;
+}
+
+.header-hidden {
+    top: -150px;
+    opacity: 0.5;
+}
+
+header ul {
+    display: flex;
+    gap: 10px;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #149861;
+}
+
+.boton-plataforma {
+    color: white;
+    background-color: #149861;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+/* =========================
+   HERO
+   ========================= */
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 56px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.titulo-hero {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.parrafo-button {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.button {
+    text-align: right;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: solid 0px;
+    margin: 0 5px;
+}
+
+.btn-primary {
+    background-color: #149861;
+    color: #EEEEEE;
+    padding: 12px 16px;
+    border-radius: 8px;
+}
+
+
+.btn-secondary {
+    border: solid 1px #149861;
+    background-color: #fff;
+     padding: 12px 16px;
+    border-radius: 8px;
+}
+
+/* 👈 Este es el cambio clave: el enlace debe ser verde */
+.parrafo-button button a:nth-of-type(2) {
+    color: #149861;
+}
+/* =========================
+   HERO SECTION
+   ========================= */
+.hero-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: #e9e9e9;
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, #ffffff, transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.phone-images {
+    display: flex;
+    gap: 85px;
+    flex-wrap: wrap;
+    flex-direction: row;
+   
+}
+.phone-img-1, .phone-img-3{
+height: 300px;
+}
+
+.phone-img-2 {
+    mask-image: linear-gradient(black 50%, transparent);
+    -webkit-mask-image: linear-gradient(black 30%, transparent);
+    height: 500px;
+}
+
+.text-overlays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay-text {
+    background-color: #000;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    position: absolute;
+    transform: rotate(-5deg);
+}
+
+.easy-management {
+    top: 50px;
+    left: 50px;
+}
+
+.easy-client {
+    top: 250px;
+    right: 50px;
+    transform: rotate(5deg);
+}
+
+/* =========================
+   SECCIÓN PAGO
+   ========================= */
+.payment-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1100px;
+    margin: 100px auto;
+    position: relative;
+    min-height: 100vh;
+}
+
+.payment-intro {
+    width: 45%;
+    position: sticky;
+    margin-bottom: 90px;
+}
+.payment-intro h2{
+    font-size: 32px;
+    font-weight: 400;
+}
+h5 {
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 700;      
+    font-size: 32px;  
+}
+.precio-plan{
+    display: flex;
+    align-items: flex-end;
+
+}
+.precio-plan .mes{
+    color: #adadad;
+    font-size: 12px;
+    font-weight: 100;
+}
+.payment-intro p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.card-stack-container {
+    width: 45%;
+    position: relative;
+    height: 100vw;
+    margin-bottom: 100px;
+}
+
+.payment-intro,
+.card-stack-container {
+    width: 45%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
+}
+
+/*  Tarjetas de pagos */
+.card {
+    background-color: #ffffff;
+    box-shadow: 0px 12px 32px 0px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+    width: 100%;
+    height: 300px;
+    border-radius: 16px;
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    position: sticky;
+    top: 80px;
+    z-index: 0; 
+    row-gap: 80px;
+}
+
+#first-card {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    z-index: 1;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.text-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.text-content p {
+    margin: 0;
+    font-size: 1rem;
+    color: #888;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.card img {
+    border-radius: 12px;
+}
+
+/* =========================
+   SECCIÓN PLANES
+   ========================= */
+.planes {
+ margin: 20px 0px;
+ padding: 10px;
+ width: 100%;
+ background-color: #f0f0f0;
+}
+
+.card-planes {
+    border: solid 1px #149861;
+    border-radius: 16px;
+    text-align: center;
+    width: 350px; /* 👈 Reducir el ancho de la tarjeta */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Esto es clave para evitar desbordes */
+    background-color: #ffffff;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    
+}
+.card-planes:hover {
+   transform: scale(1.03); /* La tarjeta se agranda un 3% */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más fuerte para dar profundidad */
+}
+
+.card-planes h4 {
+    border-bottom: 1px solid #149861;
+    padding: 10px 0px;
+    border-radius: 16px 16px 0px 0px;
+    font-weight: 400;
+    color: #149861;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    background-color: #EEEEEE;
+
+}
+.titulo-estrellas, .titulo-pro{
+    border-bottom: 1px solid #149861;
+    
+    border-radius: 15px 15px 0px 0px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #149861;
+}
+.titulo-estrellas h4, .titulo-pro h4{
+    border-bottom: 0;
+    background-color: none;
+    color: white;
+    background-color: #149861;
+}
+.info-card {
+    margin: 30px 0px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 24px; /* 👈 Agregamos un padding horizontal */
+    
+}
+
+
+
+.info-card p:first-of-type {
+    font-size: 12px;
+    color: #adadad;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.info-card p:nth-of-type(2) {
+    font-size: 14px;
+    color: #149861;
+    padding: 10px; /* 👈 Reducimos el padding vertical y horizontal */
+    margin: 0;
+}
+.info-card ul{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.info-card ul li {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px; /* 👈 Eliminamos el padding para usar gap */
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    column-gap: 10px; /* 👈 Reducir el espacio entre la imagen y el texto */
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+}
+.info-card ul li img {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+.info-card button {
+    display: flex;
+    width: 90%;
+    background-color: #149861;
+    color: #eeeeee;
+    justify-content: center;
+}
+
+.info-card button a {
+    color: #eeeeee;
+    font-size: 14px;
+    font-weight: 500;
+    font-weight: bold;
+    
+}
+
+.titulo {
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.titulo h3 {
+    font-weight: 400;
+    font-size: 40px;
+    margin: 10px 0px;
+}
+
+.titulo p {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.contenedor-planes {
+    max-width: 1300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch; /* 👈 todas alineadas arriba */
+    gap: 20px;
+    margin: 50px auto;
+   
+
+}
+
+/* =========================
+   section info
+   ========================= */
+/* Estilos generales de la sección */
+.section-info {
+    padding: 80px 0;
+   
+}
+
+.contenedor-info {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.info-texto {
+    width: 30%; 
+}
+
+.info-texto h2 {
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.info-texto p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.info-texto ul {
+    margin-top: 30px;
+}
+
+.info-texto ul li {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.info-texto ul li img {
+    width: 20px;
+    height: 20px;
+}
+
+/* ---------------------------------
+    Estilos del Carrusel de imágenes
+   --------------------------------- */
+.contenedor-info-card {
+    width: 75%; /* 👈 Nuevo ancho: 65% para ocupar más espacio */
+    position: relative;
+    overflow: hidden; /* Oculta las imágenes fuera del contenedor */
+    /* Crea el efecto de difuminado en los bordes */
+    mask-image: linear-gradient(to right, 
+        transparent 0%, 
+        black 10%, 
+        black 90%, 
+        transparent 100%
+    );
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Reducimos el tiempo a 15s para una animación más rápida y constante */
+    animation: scroll-carousel 15s linear infinite; 
+}
+
+/* Detiene la animación al pasar el cursor */
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.carousel-track img {
+    flex-shrink: 0; /* Evita que las imágenes se encojan */
+    border-radius: 10px;
+}
+
+/* La animación real */
+@keyframes scroll-carousel {
+    from {
+        transform: translateX(0); /* Empieza sin movimiento */
+    }
+    to {
+        /* Se mueve la mitad del contenedor para el bucle infinito */
+        transform: translateX(-50%); 
+    }
+}
+
+.Proximamente, .Proximamente-torneos{
+    background-color:#333;
+    color: #EEEEEE;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 10px;
+}
+
+/* =========================
+   Nuestra APP
+   ========================= */
+.nuestra-app{
+    background-color: #149861;
+    text-align: center;
+    padding: 5px 20px;
+    margin: 50px auto;
+}
+.contenedor-app{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: center;
+    margin: 20px auto;
+}
+.nuestra-app h2{
+    color: white;
+    font-size: 36px;
+    font-weight:800;
+    margin: 50px 0px;
+
+}
+.nuestra-app img{
+    text-align: center;
+    display: block;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 1280px) {
+    .call-to-action {
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+    }
+
+    .cta-content {
+        margin-right: 50px;
+        margin-bottom: 0;
+    }
+
+    .cta-image-container {
+        max-width: 45%;
+    }
+    .contenedor-info-card {
+    width: 50%; /* 👈 Nuevo ancho: 65% para ocupar más espacio */
+    position: relative;
+    overflow: hidden; /* Oculta las imágenes fuera del contenedor */
+    /* Crea el efecto de difuminado en los bordes */
+    mask-image: linear-gradient(to right, 
+        transparent 0%, 
+        black 10%, 
+        black 90%, 
+        transparent 100%
+    );
+}
+.info-texto {
+    width: 50%; 
+   
+}
+}
+
+/* ======== Mobile Styles ======== */
+/* ======== Desktop default ======== */
+.menu-toggle {
+  display: none; /* 👈 oculto en PC */
+}
+
+/* ======== Mobile Styles ======== */
+@media (max-width: 767px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 180px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  .nav-links ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .nav-links ul li {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    font-size: 28px;
+    cursor: pointer;
+    display: block; /* 👈 solo en mobile */
+  }
+
+  /* Hero sin degradado */
+  .hero-section {
+    background: none !important;
+    padding: 20px 10px;
+    flex-direction: column;
+  }
+
+  /* Imágenes más chicas */
+  .phone-images {
+    gap: 20px;
+    justify-content: center;
+  }
+  .phone-images img {
+    height: auto;
+    max-width: 350px;
+  }
+  .phone-img-1, .phone-img-3{
+    display: none;
+  }
+  .phone-img-2 {
+    max-width: 150px;
+    mask-image: none;
+    -webkit-mask-image: none;
+
+  }
+.text-overlays{
+    display: none;
+  }
+.hero-section::after {
+    
+    background: none;
+ 
+}
+
+.easy-client {
+    top: 90px;
+    right: 50px;
+    transform: rotate(5deg);
+}
+
+
+  /* Ajuste textos hero */
+  .titulo-hero h1 {
+    font-size: 22px;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .parrafo-button {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 15px;
+    gap: 15px;
+  }
+
+  .button {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* Payment section responsive */
+  .payment-section {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 15px;
+    margin: 50px auto;
+  }
+  .payment-intro, .card-stack-container {
+    width: 100%;
+    position: static;
+  }
+
+  /* Planes responsive */
+  .contenedor-planes {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-planes {
+    width: 90%;
+  }
+
+  /* Section info */
+  .contenedor-info {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .info-texto, .contenedor-info-card {
+    width: 100%;
+  }
+}
+
+/* Mostrar menú cuando esté activo */
+.nav-links.active {
+  display: block;
+}
+
+
