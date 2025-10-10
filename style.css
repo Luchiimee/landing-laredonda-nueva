@@ -581,7 +581,7 @@ h5 {
 .nuestra-app{
     background-color: #149861;
     text-align: center;
-    padding: 5px 20px;
+    padding: 25px 20px;
     margin: 50px auto;
 }
 .contenedor-app{
@@ -607,8 +607,422 @@ h5 {
     width: 100%;
 }
 
+.button-nuestra-app {
+  
+    text-align: center;
+    margin: 20px auto;
+}
+.button-nuestra-app button{
+width: 500px;
+margin: 0px 50px;
+}
+.button-nuestra-app button a{
+    font-size: 14px;
+    font-weight: bold;
+}
+.button-nuestra-app button:nth-child(2){
+    border: solid 1px rgb(255, 255, 255);
+    color: #EEEEEE;
+    background-color: #149861;
+}
+.button-nuestra-app button:nth-child(2) a{
+    color: #EEEEEE;
+}
+
+/*section proximamente */
 
 
+.proximamente{
+ display: flex;
+ justify-content: center
+ 
+}
+.contenedor-proxi{
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 70px;
+    justify-content: center;
+}
+video{
+    width: 740px;
+    height: 360px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.video video{
+    display: block;
+    object-fit: cover;
+}
+.texto-proxi{
+    width: 800px;
+}
+.texto-proxi span{
+    background-color: #343A3D;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    display:inline-block;
+    color: #EEEEEE;
+}
+.texto-proxi h2 {
+    font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1.0; 
+  letter-spacing: 0;
+    letter-spacing: 0px; 
+    line-height: 1.3;
+    margin: 5px 0; 
+}
+.texto-proxi h2 strong{
+     font-weight: 600;
+     font-size: 32px;
+
+}
+
+.texto-proxi ul li{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px 10px;
+    margin: 20px 0;
+}
+.texto-proxi ul li h3{
+    color: #149861;
+    font-size: 14px;
+    font-weight: 600;
+}
+.texto-proxi ul li p{
+    color: #343A3D;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+
+/* section videos tutoriales*/
+.tutoriales {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+.contenedor-tuto {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.tutoriales h1 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 40px;
+}
+
+
+.galeria-videos {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+
+.tarjeta-video {
+    flex: 1 1 calc(33.333% - 20px);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden; 
+    min-width: 280px; 
+}
+
+
+.enlace-video {
+    text-decoration: none; 
+    color: inherit;
+    display: block;
+}
+
+/* Marco del video (el área negra 16:9) */
+.marco-video {
+    width: 100%;
+    padding-top: 56.25%; 
+    background-color: #000;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.icono-youtube {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 70px; 
+    height: 70px;
+    
+}
+
+
+
+.info-video {
+    padding: 20px;
+}
+
+.info-video h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.info-video p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+.contenedor-tuto button{
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: solid #149861 1px;
+    margin: 20px auto;
+    width: 400px;
+
+}
+/* preguntas frecuentes*/
+
+.faq-section {
+    padding: 60px 0;
+    background-color: #f7f7f7; /* Fondo gris claro, como en la imagen */
+}
+
+.contenedor {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.faq-section h1 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Contenedor del acordeón */
+.acordeon {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre cada tarjeta de pregunta */
+}
+
+/* Estilo de cada item del acordeón (la tarjeta blanca) */
+.acordeon-item {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Borde sutil */
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+   
+}
+
+/* Estilo cuando el item está abierto (opcional, para resaltarlo) */
+.acordeon-item.abierta {
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); */
+    border-color: #ddd; /* Asegura el borde del item abierto */
+}
+
+/* Encabezado de la pregunta (el botón clicable) */
+.acordeon-header {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 8px; /* Para que el cursor se vea bien */
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+
+.acordeon-header:hover {
+    background-color: #f5f5f5;
+    border-radius: 0;
+}
+
+/* Texto de la pregunta */
+.acordeon-header .pregunta {
+    flex-grow: 1;
+    color: #000;
+}
+
+/* Contenido de la respuesta */
+.acordeon-contenido {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.acordeon-contenido p {
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 15px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Icono de la flecha (usando caracteres Unicode o Flexbox) */
+.icono-flecha::before {
+    content: '⌵'; /* Carácter Unicode de flecha hacia abajo/triángulo */
+    font-size: 20px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+    display: block;
+    color: #555;
+}
+
+/* Estado del icono cuando la tarjeta está abierta: rotar 180 grados */
+.acordeon-item.abierta .icono-flecha::before {
+    transform: rotate(180deg);
+}
+
+/* Estilo especial para el texto verde de la primera pregunta */
+.acordeon-item.abierta .acordeon-header .pregunta {
+    color: #4CAF50; /* Color verde */
+    font-weight: 500;
+}
+.pregunta{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+
+
+/* --- Estilos de la Sección de Testimonios --- */
+@keyframes scroll-testimonios {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Desplaza exactamente el ancho de las 5 tarjetas originales + sus gaps */
+        /* 5 * (250px + 20px) = 1350px */
+        transform: translateX(calc(-5 * (250px + 20px)));
+    }
+}
+
+/* Fallback para Webkit (Chrome, Safari) */
+@-webkit-keyframes scroll-testimonios {
+    0% {
+        -webkit-transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(calc(-5 * (250px + 20px)));
+    }
+}
+
+.testimonios-section {
+    padding: 60px 0;
+    background-color: #f7f7f7; 
+   
+    justify-content: center;
+    overflow: hidden;
+}
+
+.testimonios-section h1 {
+    font-size: 32px;
+    font-weight: 400; 
+    color: #333;
+    margin-bottom: 40px;
+}
+.contenedor-testimonios { 
+    max-width: 1300px; /* Agregado para centrar y limitar ancho si no existe */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.carrusel-testimonios {
+    width: 100%;
+   
+}
+
+
+.testimonios-track {
+    display: flex;
+    animation: scroll-carrusel 40s linear infinite;
+
+    flex-wrap: nowrap; 
+    gap: 20px; 
+    padding-bottom: 20px; 
+}
+
+
+.testimonio-card {
+    
+    width: 250px; 
+    /* El flex-shrink: 0; es CRUCIAL para evitar que Flexbox las encoja */
+    flex-shrink: 0; 
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    border: 1px solid #e0e0e0; 
+}
+
+
+.testimonio-card .cita {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    margin-top: auto; 
+}
+
+
+.usuario-foto {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+
+.usuario-nombre {
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+}
 
 
 /* =========================
