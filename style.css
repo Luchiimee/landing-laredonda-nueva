@@ -123,14 +123,15 @@ button {
 .btn-secondary {
     border: solid 1px #149861;
     background-color: #fff;
-     padding: 12px 16px;
+    padding: 12px 16px;
     border-radius: 8px;
 }
 
-/* 👈 Este es el cambio clave: el enlace debe ser verde */
+/* El enlace debe ser verde */
 .parrafo-button button a:nth-of-type(2) {
     color: #149861;
 }
+
 /* =========================
    HERO SECTION
    ========================= */
@@ -164,10 +165,10 @@ button {
     gap: 85px;
     flex-wrap: wrap;
     flex-direction: row;
-   
+    
 }
 .phone-img-1, .phone-img-3{
-height: 300px;
+    height: 300px;
 }
 
 .phone-img-2 {
@@ -230,7 +231,7 @@ height: 300px;
 h5 {
     font-family: 'Poppins', sans-serif; 
     font-weight: 700;      
-    font-size: 32px;  
+    font-size: 32px;    
 }
 .precio-plan{
     display: flex;
@@ -263,7 +264,7 @@ h5 {
     align-self: flex-start;
 }
 
-/*  Tarjetas de pagos */
+/* Tarjetas de pagos */
 .card {
     background-color: #ffffff;
     box-shadow: 0px 12px 32px 0px rgba(0, 0, 0, 0.04);
@@ -321,28 +322,28 @@ h5 {
    SECCIÓN PLANES
    ========================= */
 .planes {
- margin: 20px 0px;
- padding: 10px;
- width: 100%;
- background-color: #f0f0f0;
+    margin: 20px 0px;
+    padding: 10px;
+    width: 100%;
+    background-color: #f0f0f0;
 }
 
 .card-planes {
     border: solid 1px #149861;
     border-radius: 16px;
     text-align: center;
-    width: 350px; /* 👈 Reducir el ancho de la tarjeta */
+    width: 350px; 
     padding: 0;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Esto es clave para evitar desbordes */
+    overflow: hidden; 
     background-color: #ffffff;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     
 }
 .card-planes:hover {
-   transform: scale(1.03); /* La tarjeta se agranda un 3% */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más fuerte para dar profundidad */
+    transform: scale(1.03); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
 }
 
 .card-planes h4 {
@@ -371,7 +372,7 @@ h5 {
 }
 .titulo-estrellas h4, .titulo-pro h4{
     border-bottom: 0;
-    background-color: none;
+    background-color: unset; /* Corregido: 'none' no es un valor CSS válido para background-color */
     color: white;
     background-color: #149861;
 }
@@ -382,7 +383,7 @@ h5 {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    padding: 0px 24px; /* 👈 Agregamos un padding horizontal */
+    padding: 0px 24px; 
     
 }
 
@@ -398,7 +399,7 @@ h5 {
 .info-card p:nth-of-type(2) {
     font-size: 14px;
     color: #149861;
-    padding: 10px; /* 👈 Reducimos el padding vertical y horizontal */
+    padding: 10px; 
     margin: 0;
 }
 .info-card ul{
@@ -411,12 +412,12 @@ h5 {
 .info-card ul li {
     display: flex;
     flex-direction: row;
-    padding: 10px 0px; /* 👈 Eliminamos el padding para usar gap */
+    padding: 10px 0px; 
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
     align-content: center;
-    column-gap: 10px; /* 👈 Reducir el espacio entre la imagen y el texto */
+    column-gap: 10px; 
     font-size: 14px;
     font-family: "Poppins", sans-serif;
 }
@@ -464,10 +465,10 @@ h5 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch; /* 👈 todas alineadas arriba */
+    align-items: stretch; 
     gap: 20px;
     margin: 50px auto;
-   
+    
 
 }
 
@@ -477,7 +478,7 @@ h5 {
 /* Estilos generales de la sección */
 .section-info {
     padding: 80px 0;
-   
+    
 }
 
 .contenedor-info {
@@ -523,12 +524,12 @@ h5 {
 }
 
 /* ---------------------------------
-    Estilos del Carrusel de imágenes
+   Estilos del Carrusel de imágenes
    --------------------------------- */
 .contenedor-info-card {
-    width: 75%; /* 👈 Nuevo ancho: 65% para ocupar más espacio */
+    width: 75%; 
     position: relative;
-    overflow: hidden; /* Oculta las imágenes fuera del contenedor */
+    overflow: hidden; 
     /* Crea el efecto de difuminado en los bordes */
     mask-image: linear-gradient(to right, 
         transparent 0%, 
@@ -608,13 +609,12 @@ h5 {
 }
 
 .button-nuestra-app {
-  
     text-align: center;
     margin: 20px auto;
 }
 .button-nuestra-app button{
-width: 500px;
-margin: 0px 50px;
+    width: 500px;
+    margin: 0px 50px;
 }
 .button-nuestra-app button a{
     font-size: 14px;
@@ -633,9 +633,8 @@ margin: 0px 50px;
 
 
 .proximamente{
- display: flex;
- justify-content: center
- 
+    display: flex;
+    justify-content: center;
 }
 .contenedor-proxi{
     margin: 50px auto;
@@ -671,17 +670,17 @@ video{
 }
 .texto-proxi h2 {
     font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  font-size: 32px;
-  line-height: 1.0; 
-  letter-spacing: 0;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1.0; 
+    letter-spacing: 0;
     letter-spacing: 0px; 
     line-height: 1.3;
     margin: 5px 0; 
 }
 .texto-proxi h2 strong{
-     font-weight: 600;
-     font-size: 32px;
+    font-weight: 600;
+    font-size: 32px;
 
 }
 
@@ -803,7 +802,7 @@ video{
 
 .faq-section {
     padding: 60px 0;
-    background-color: #f7f7f7; /* Fondo gris claro, como en la imagen */
+    background-color: #f7f7f7; 
 }
 
 .contenedor {
@@ -823,23 +822,23 @@ video{
 .acordeon {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espacio entre cada tarjeta de pregunta */
+    gap: 10px; 
 }
 
 /* Estilo de cada item del acordeón (la tarjeta blanca) */
 .acordeon-item {
     background-color: #fff;
     border-radius: 8px;
-    border: 1px solid #ddd; /* Borde sutil */
+    border: 1px solid #ddd; 
     transition: box-shadow 0.3s ease;
     overflow: hidden;
-   
+    
 }
 
 /* Estilo cuando el item está abierto (opcional, para resaltarlo) */
 .acordeon-item.abierta {
     /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); */
-    border-color: #ddd; /* Asegura el borde del item abierto */
+    border-color: #ddd; 
 }
 
 /* Encabezado de la pregunta (el botón clicable) */
@@ -855,7 +854,7 @@ video{
     font-size: 16px;
     font-weight: 400;
     color: #333;
-    border-radius: 8px; /* Para que el cursor se vea bien */
+    border-radius: 8px; 
     box-sizing: border-box;
     margin: 0;
     
@@ -910,7 +909,7 @@ video{
     color: #4CAF50; /* Color verde */
     font-weight: 500;
 }
-.pregunta{
+.pregunta {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -919,112 +918,93 @@ video{
 
 
 
-/* --- Estilos de la Sección de Testimonios --- */
-@keyframes scroll-testimonios {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Desplaza exactamente el ancho de las 5 tarjetas originales + sus gaps */
-        /* 5 * (250px + 20px) = 1350px */
-        transform: translateX(calc(-5 * (250px + 20px)));
-    }
+/* =======================================
+   --- Estilos de la Sección de Testimonios (FINAL) --- 
+   ======================================= */
+
+.testimonios {
+  font-family: 'Poppins', sans-serif;
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  overflow: hidden;
 }
 
-/* Fallback para Webkit (Chrome, Safari) */
-@-webkit-keyframes scroll-testimonios {
-    0% {
-        -webkit-transform: translateX(0);
-    }
-    100% {
-        -webkit-transform: translateX(calc(-5 * (250px + 20px)));
-    }
+/* Título alineado con el carrusel */
+.testimonios h2 {
+font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #111;
+  margin-bottom: 40px;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  
 }
 
-.testimonios-section {
-    padding: 60px 0;
-    background-color: #f7f7f7; 
-   
-    justify-content: center;
-    overflow: hidden;
+/* Contenedor principal del carrusel */
+.carousel-container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
 }
 
-.testimonios-section h1 {
-    font-size: 32px;
-    font-weight: 400; 
-    color: #333;
-    margin-bottom: 40px;
-}
-.contenedor-testimonios { 
-    max-width: 1300px; /* Agregado para centrar y limitar ancho si no existe */
-    margin: 0 auto;
-    padding: 0 20px;
+/* Línea de movimiento del carrusel */
+.carousel-testimonio {
+  display: flex;
+  gap: 25px;
+  transition: transform 0.1s linear;
+  
+  margin: 0 auto;
 }
 
-.carrusel-testimonios {
-    width: 100%;
-   
+/* Cada tarjeta */
+.texto-testimonio {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px;
+  width: 280px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-.testimonios-track {
-    display: flex;
-    animation: scroll-carrusel 40s linear infinite;
-
-    flex-wrap: nowrap; 
-    gap: 20px; 
-    padding-bottom: 20px; 
+.texto-testimonio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-
-.testimonio-card {
-    
-    width: 250px; 
-    /* El flex-shrink: 0; es CRUCIAL para evitar que Flexbox las encoja */
-    flex-shrink: 0; 
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-    height: auto; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    border: 1px solid #e0e0e0; 
+.texto-testimonio p {
+  color: #2e7d32;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 20px;
 }
 
-
-.testimonio-card .cita {
-    font-size: 15px;
-    color: #333;
-    line-height: 1.5;
-    margin-bottom: 20px;
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-
-.usuario-info {
-    display: flex;
-    align-items: center;
-    margin-top: auto; 
+.user img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-
-.usuario-foto {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; 
-    object-fit: cover;
-    margin-right: 10px;
+.user strong {
+  font-weight: 600;
+  color: #000;
+  font-size: 0.95rem;
 }
-
-
-.usuario-nombre {
-    font-size: 14px;
-    font-weight: 700;
-    color: #555;
-}
-
-
 /* =========================
    RESPONSIVE
    ========================= */
@@ -1044,165 +1024,162 @@ video{
         max-width: 45%;
     }
     .contenedor-info-card {
-    width: 50%; /* 👈 Nuevo ancho: 65% para ocupar más espacio */
-    position: relative;
-    overflow: hidden; /* Oculta las imágenes fuera del contenedor */
-    /* Crea el efecto de difuminado en los bordes */
-    mask-image: linear-gradient(to right, 
-        transparent 0%, 
-        black 10%, 
-        black 90%, 
-        transparent 100%
-    );
-}
-.info-texto {
-    width: 50%; 
-   
-}
-}
+        width: 50%; 
+        position: relative;
+        overflow: hidden; 
+        /* Crea el efecto de difuminado en los bordes */
+        mask-image: linear-gradient(to right, 
+            transparent 0%, 
+            black 10%, 
+            black 90%, 
+            transparent 100%
+        );
+    }
+    .info-texto {
+        width: 50%; 
+    }
+} /* <--- ¡ESTA LLAVE FALTABA O ESTABA EN EL LUGAR INCORRECTO! CORREGIDO. */
 
 /* ======== Mobile Styles ======== */
 /* ======== Desktop default ======== */
 .menu-toggle {
-  display: none; /* 👈 oculto en PC */
+    display: none; /* oculto en PC */
 }
 
 /* ======== Mobile Styles ======== */
 @media (max-width: 767px) {
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-  }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
 
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 15px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 180px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-    z-index: 999;
-  }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 15px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 180px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
 
-  .nav-links ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 10px 0;
-  }
+    .nav-links ul {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 10px 0;
+    }
 
-  .nav-links ul li {
-    text-align: center;
-    margin: 10px 0;
-  }
+    .nav-links ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
 
-  .menu-toggle {
-    font-size: 28px;
-    cursor: pointer;
-    display: block; /* 👈 solo en mobile */
-  }
+    .menu-toggle {
+        font-size: 28px;
+        cursor: pointer;
+        display: block; /* solo en mobile */
+    }
 
-  /* Hero sin degradado */
-  .hero-section {
-    background: none !important;
-    padding: 20px 10px;
-    flex-direction: column;
-  }
+    /* Hero sin degradado */
+    .hero-section {
+        background: none !important;
+        padding: 20px 10px;
+        flex-direction: column;
+    }
 
-  /* Imágenes más chicas */
-  .phone-images {
-    gap: 20px;
-    justify-content: center;
-  }
-  .phone-images img {
-    height: auto;
-    max-width: 350px;
-  }
-  .phone-img-1, .phone-img-3{
-    display: none;
-  }
-  .phone-img-2 {
-    max-width: 150px;
-    mask-image: none;
-    -webkit-mask-image: none;
+    /* Imágenes más chicas */
+    .phone-images {
+        gap: 20px;
+        justify-content: center;
+    }
+    .phone-images img {
+        height: auto;
+        max-width: 350px;
+    }
+    .phone-img-1, .phone-img-3{
+        display: none;
+    }
+    .phone-img-2 {
+        max-width: 150px;
+        mask-image: none;
+        -webkit-mask-image: none;
 
-  }
-.text-overlays{
-    display: none;
-  }
-.hero-section::after {
+    }
+    .text-overlays{
+        display: none;
+    }
+    .hero-section::after {
+        
+        background: none;
     
-    background: none;
- 
-}
+    }
 
-.easy-client {
-    top: 90px;
-    right: 50px;
-    transform: rotate(5deg);
-}
+    .easy-client {
+        top: 90px;
+        right: 50px;
+        transform: rotate(5deg);
+    }
 
 
-  /* Ajuste textos hero */
-  .titulo-hero h1 {
-    font-size: 22px;
-    line-height: 1.3;
-    text-align: center;
-  }
+    /* Ajuste textos hero */
+    .titulo-hero h1 {
+        font-size: 22px;
+        line-height: 1.3;
+        text-align: center;
+    }
 
-  .parrafo-button {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 15px;
-    gap: 15px;
-  }
+    .parrafo-button {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 15px;
+        gap: 15px;
+    }
 
-  .button {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
+    .button {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
 
-  /* Payment section responsive */
-  .payment-section {
-    flex-direction: column;
-    width: 100%;
-    padding: 0 15px;
-    margin: 50px auto;
-  }
-  .payment-intro, .card-stack-container {
-    width: 100%;
-    position: static;
-  }
+    /* Payment section responsive */
+    .payment-section {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 15px;
+        margin: 50px auto;
+    }
+    .payment-intro, .card-stack-container {
+        width: 100%;
+        position: static;
+    }
 
-  /* Planes responsive */
-  .contenedor-planes {
-    flex-direction: column;
-    align-items: center;
-  }
-  .card-planes {
-    width: 90%;
-  }
+    /* Planes responsive */
+    .contenedor-planes {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-planes {
+        width: 90%;
+    }
 
-  /* Section info */
-  .contenedor-info {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .info-texto, .contenedor-info-card {
-    width: 100%;
-  }
+    /* Section info */
+    .contenedor-info {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .info-texto, .contenedor-info-card {
+        width: 100%;
+    }
 }
 
 /* Mostrar menú cuando esté activo */
 .nav-links.active {
-  display: block;
+    display: block;
 }
-
-
