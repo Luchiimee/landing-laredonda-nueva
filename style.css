@@ -538,42 +538,44 @@ h5 {
     );
 }
 
-.carousel-track {
+
+
+.carousel-track,
+.carousel-testimonio {
     display: flex;
     align-items: center;
-    gap: 20px;
-    /* Reducimos el tiempo a 15s para una animación más rápida y constante */
-    animation: scroll-carousel 15s linear infinite; 
+    gap: 20px; 
+    flex-wrap: nowrap;
+    will-change: transform;
+    overflow: visible; 
+    transition: none !important; 
 }
 
-/* Detiene la animación al pasar el cursor */
-.carousel-track:hover {
-    animation-play-state: paused;
+/* si quieres gap diferente para testimonios, lo ajustamos */
+.carousel-testimonio {
+    gap: 25px;
+    padding: 10px;
 }
 
-.carousel-track img {
-    flex-shrink: 0; /* Evita que las imágenes se encojan */
-    border-radius: 10px;
+/* Hijos: no se encojan y mantengan su ancho natural */
+.carousel-track > * ,
+.carousel-testimonio > * {
+    flex: 0 0 auto;
 }
 
-/* La animación real */
-@keyframes scroll-carousel {
-    from {
-        transform: translateX(0); /* Empieza sin movimiento */
-    }
-    to {
-        /* Se mueve la mitad del contenedor para el bucle infinito */
-        transform: translateX(-50%); 
-    }
+/* Imágenes dentro del track */
+.carousel-track img,
+.carousel-testimonio img {
+    display: block;
+    max-height: 500px;
+    height: auto;
+    border-radius: 12px;
 }
 
-.Proximamente, .Proximamente-torneos{
-    background-color:#333;
-    color: #EEEEEE;
-    padding: 8px;
-    border-radius: 8px;
-    font-size: 10px;
-}
+/* El contenedor padre hace overflow:hidden para recortar */
+.contenedor-info-card { overflow: hidden; }
+.carousel-container { overflow: hidden; }
+
 
 /* =========================
    Nuestra APP
@@ -799,6 +801,7 @@ video{
 }
 /* preguntas frecuentes*/
 
+/* preguntas frecuentes*/
 .faq-section {
     padding: 60px 0;
     background-color: #f7f7f7; 
@@ -822,6 +825,7 @@ video{
     display: flex;
     flex-direction: column;
     gap: 10px; 
+    background-color: #f9f9f9;;
 }
 
 /* Estilo de cada item del acordeón (la tarjeta blanca) */
@@ -1004,6 +1008,7 @@ font-family: 'Poppins', sans-serif;
   color: #000;
   font-size: 0.95rem;
 }
+
 /* =========================
    RESPONSIVE
    ========================= */
@@ -1037,7 +1042,7 @@ font-family: 'Poppins', sans-serif;
     .info-texto {
         width: 50%; 
     }
-} /* <--- ¡ESTA LLAVE FALTABA O ESTABA EN EL LUGAR INCORRECTO! CORREGIDO. */
+} 
 
 /* ======== Mobile Styles ======== */
 /* ======== Desktop default ======== */
@@ -1188,6 +1193,7 @@ font-family: 'Poppins', sans-serif;
         width: 100% !important; 
         height: auto !important; 
         max-width: 100%;
+        padding: 10px;
     }
 
     .texto-proxi {
@@ -1224,4 +1230,31 @@ font-family: 'Poppins', sans-serif;
 /* Mostrar menú cuando esté activo */
 .nav-links.active {
     display: block;
+}
+
+footer{
+    background-color: #149861;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.botones-footer img{
+    width: 200px;
+}
+.botones-footer span{
+    color: #EEEEEE;
+}
+.botones-footer{
+    display: flex;
+    padding: 30px;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+footer .logos img{
+    width: 40px;
 }

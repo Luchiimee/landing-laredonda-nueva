@@ -56,68 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cards[0].style.zIndex = '2';
     }
 
-    // ===============================================
-    // --- Lógica del Carrusel Infinito Suave (Testimonios) ---
-    // ===============================================
-    const carouselTrack = document.querySelector('.carousel-testimonio');
-
-    if (carouselTrack) {
-        const items = Array.from(carouselTrack.children);
-        let scrollSpeed = 0.4; // 🔹 Ajustá la velocidad a gusto
-        let position = 0;
-
-        // Clonamos dinámicamente las tarjetas para permitir el bucle infinito
-        items.forEach(item => {
-            const clone = item.cloneNode(true);
-            carouselTrack.appendChild(clone);
-        });
-
-        // Aplicamos transición suave al movimiento
-        carouselTrack.style.transition = "transform 0.05s linear";
-
-        function animateCarousel() {
-            position -= scrollSpeed;
-            const firstCard = carouselTrack.children[0];
-            const cardWidth = firstCard.offsetWidth + 25; // ancho + gap
-
-            // Si la primera card sale completamente de la vista
-            if (Math.abs(position) >= cardWidth) {
-                // Quitamos transición temporalmente
-                carouselTrack.style.transition = "none";
-
-                // Movemos la primera card al final
-                carouselTrack.appendChild(carouselTrack.children[0]);
-
-                // Reajustamos la posición sin salto
-                position += cardWidth;
-                carouselTrack.style.transform = `translateX(${position}px)`;
-
-                // Forzamos reflow (reinicia el render para suavizar)
-                void carouselTrack.offsetWidth;
-
-                // Reactivamos transición
-                carouselTrack.style.transition = "transform 0.05s linear";
-            }
-
-            // Aplicamos la posición actual
-            carouselTrack.style.transform = `translateX(${position}px)`;
-
-            requestAnimationFrame(animateCarousel);
-        }
-
-        animateCarousel();
-
-        // (Opcional) Pausa al pasar el mouse sobre el carrusel
-        carouselTrack.addEventListener("mouseenter", () => {
-            scrollSpeed = 0;
-        });
-        carouselTrack.addEventListener("mouseleave", () => {
-            scrollSpeed = 0.4;
-        });
-    }
-
-    // ===============================================
-
     // --- Lógica del Menú Hamburguesa ---
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.querySelector(".nav-links");
@@ -163,6 +101,76 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+/* =======================================
+   CARRUSEL DE TESTIMONIOS (infinito corregido)
+======================================= */
+const carouselTestimonio = document.querySelector(".carousel-testimonio");
+
+if (carouselTestimonio) {
+    // Duplicamos el contenido una sola vez
+    const originalContent = carouselTestimonio.innerHTML;
+    carouselTestimonio.innerHTML = originalContent + originalContent;
+
+    let pos1 = 0;
+    const speed1 = 0.6; // velocidad
+    let paused1 = false;
+
+    // Ancho de la mitad (la parte visible original)
+    let resetLimit = carouselTestimonio.scrollWidth / 2;
+
+    function moveTestimonios() {
+        if (!paused1) {
+            pos1 -= speed1;
+
+            // Reinicio exacto al terminar el primer bloque
+            if (Math.abs(pos1) >= resetLimit) pos1 = 0;
+
+            carouselTestimonio.style.transform = `translateX(${pos1}px)`;
+        }
+        requestAnimationFrame(moveTestimonios);
+    }
+
+    // Pausar en hover
+    carouselTestimonio.addEventListener("mouseenter", () => (paused1 = true));
+    carouselTestimonio.addEventListener("mouseleave", () => (paused1 = false));
+
+    // Recalcular si cambia el tamaño de pantalla (para que no se desincronice en mobile)
+    window.addEventListener('resize', () => {
+        resetLimit = carouselTestimonio.scrollWidth / 2;
+    });
+
+    moveTestimonios();
+}
+
+
+    /* =======================================
+       CARRUSEL DE IMÁGENES (section-info)
+       → mismo sistema infinito que testimonios
+    ======================================= */
+    const carouselTrack = document.querySelector(".carousel-track");
+
+    if (carouselTrack) {
+        carouselTrack.innerHTML += carouselTrack.innerHTML;
+
+        let pos2 = 0;
+        const speed2 = 0.6;
+        let paused2 = false;
+
+        function moveTrack() {
+            if (!paused2) {
+                pos2 -= speed2;
+                if (Math.abs(pos2) >= carouselTrack.scrollWidth / 2) pos2 = 0;
+                carouselTrack.style.transform = `translateX(${pos2}px)`;
+            }
+            requestAnimationFrame(moveTrack);
+        }
+
+        carouselTrack.addEventListener("mouseenter", () => (paused2 = true));
+        carouselTrack.addEventListener("mouseleave", () => (paused2 = false));
+
+        moveTrack();
+    }
 
     // --- Scroll optimizado ---
     let isScrolling = false;
