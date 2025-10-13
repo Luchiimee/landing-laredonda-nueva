@@ -108,12 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
 const carouselTestimonio = document.querySelector(".carousel-testimonio");
 
 if (carouselTestimonio) {
-    // Duplicamos el contenido una sola vez
-    const originalContent = carouselTestimonio.innerHTML;
-    carouselTestimonio.innerHTML = originalContent + originalContent;
+    // Duplicamos el contenido completo una sola vez
+    carouselTestimonio.innerHTML += carouselTestimonio.innerHTML;
 
     let pos1 = 0;
-    const speed1 = 0.6; // velocidad
+    const speed1 = 0.6;
     let paused1 = false;
 
     // Ancho de la mitad (la parte visible original)
