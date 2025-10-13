@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-/* =======================================
-   CARRUSEL DE TESTIMONIOS (infinito corregido)
+   /* =======================================
+   CARRUSEL DE TESTIMONIOS (igual al carousel-track)
 ======================================= */
 const carouselTestimonio = document.querySelector(".carousel-testimonio");
 

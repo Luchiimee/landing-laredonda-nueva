@@ -526,55 +526,133 @@ h5 {
    Estilos del Carrusel de imágenes
    --------------------------------- */
 .contenedor-info-card {
-    width: 75%; 
-    position: relative;
-    overflow: hidden; 
-    /* Crea el efecto de difuminado en los bordes */
-    mask-image: linear-gradient(to right, 
-        transparent 0%, 
-        black 10%, 
-        black 90%, 
-        transparent 100%
-    );
-}
-
-
-
-.carousel-track,
-.carousel-testimonio {
+  width: 75%;
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right,
+transparent 0%, black 10%, black 90%, transparent 100%);
     display: flex;
-    align-items: center;
-    gap: 20px; 
-    flex-wrap: nowrap;
-    will-change: transform;
-    overflow: visible; 
-    transition: none !important; 
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-/* si quieres gap diferente para testimonios, lo ajustamos */
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scrollCarousel 35s linear infinite;
+  width: max-content;
+}
+
+.carousel-track img {
+  width: 220px;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+@keyframes scrollCarousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===============================
+   --- TESTIMONIOS ---
+   =============================== */
+.testimonios {
+  font-family: 'Poppins', sans-serif;
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.testimonios h2 {
+  font-size: 32px;
+  font-weight: 400;
+  color: #111;
+  margin-bottom: 40px;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.carousel-container {
+   width: 80%;
+    display: flex;
+    justify-content: space-around;
+     overflow: hidden; 
+    position: relative;
+    margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+     mask-image: linear-gradient(to right,
+transparent 0%, black 5%, black 90%, transparent 100%);
+}
+
+/* Movimiento continuo */
 .carousel-testimonio {
-    gap: 25px;
-    padding: 10px;
+  display: flex;
+  gap: 20px;
+  animation: scrollCarousel 35s linear infinite;
+  width: max-content;
+  padding: 15px;
+  
 }
 
-/* Hijos: no se encojan y mantengan su ancho natural */
-.carousel-track > * ,
-.carousel-testimonio > * {
-    flex: 0 0 auto;
+@keyframes scrollTestimonios {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-/* Imágenes dentro del track */
-.carousel-track img,
-.carousel-testimonio img {
-    display: block;
-    max-height: 500px;
-    height: auto;
-    border-radius: 12px;
+/* Tarjetas de testimonio */
+.texto-testimonio {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px;
+  width: 280px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* El contenedor padre hace overflow:hidden para recortar */
-.contenedor-info-card { overflow: hidden; }
-.carousel-container { overflow: hidden; }
+.texto-testimonio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.texto-testimonio p {
+  color: #2e7d32;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user strong {
+  font-weight: 600;
+  color: #000;
+  font-size: 0.95rem;
+}
+
+/* Pausar animación al hover */
+.carousel-testimonio:hover {
+  animation-play-state: paused;
+}
 
 
 /* =========================
