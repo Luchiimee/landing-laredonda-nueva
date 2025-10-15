@@ -1,5 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Lógica del Header que se Oculta ---
+
+    // =======================================
+    // LÓGICA DEL POP-UP (MODAL)
+    // =======================================
+
+    const modal = document.getElementById('modal-plataforma');
+    const btnRegistro = document.getElementById('btn-plataforma-reg'); // Botón principal (Hero)
+    const btnFooter = document.getElementById('btn-plataforma-footer'); // Botón del Footer
+    const spanCerrar = document.getElementById('cerrar-modal');
+
+    function abrirModal() {
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function cerrarModal() {
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (btnRegistro) btnRegistro.addEventListener('click', abrirModal);
+    if (btnFooter) {
+        btnFooter.addEventListener('click', (e) => {
+            e.preventDefault();
+            abrirModal();
+        });
+    }
+    if (spanCerrar) spanCerrar.addEventListener('click', cerrarModal);
+    if (modal) {
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) cerrarModal();
+        });
+    }
+
+    // =======================================
+    // LÓGICA DEL HEADER QUE SE OCULTA
+    // =======================================
     let lastScrollY = window.scrollY;
     const header = document.querySelector('header');
 
@@ -15,13 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScrollY = currentScrollY;
     }
 
-    // --- Lógica de las Tarjetas Apilables (Sección de Pagos) ---
+      // --- Lógica de las Tarjetas Apilables (Sección de Pagos) ---
     const cards = document.querySelectorAll('.card');
     const cardStackContainer = document.querySelector('.card-stack-container');
-    const cardHeight = 1000;
+    const cardHeight = 700;
 
     if (cardStackContainer) {
-        cardStackContainer.style.height = `${cards.length * cardHeight}px`;
+        const cardRealHeight = cards[0].offsetHeight;
+  const spacing = 200; // espacio entre cards durante el scroll
+  cardStackContainer.style.height = `${cards.length * (cardRealHeight + spacing)}px`;
+
     }
 
     let activeCardIndex = 0;
