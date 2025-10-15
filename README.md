@@ -1,1 +1,1 @@
-agregue los pop up en lo botones "Ir a la plataforma", aregle el espacio que habia despues de las card en la animacion, cuando aparece la ultima card tambien aparece la proxima section asi no se genera un espacio, no pude acortar ese espacio en mobile.
+agregue los pop up en lo botones "Ir a la plataforma", arregle el espacio que habia despues de las card en la animacion, cuando aparece la ultima card tambien aparece la proxima section asi no se genera un espacio, no pude acortar ese espacio en mobile.
