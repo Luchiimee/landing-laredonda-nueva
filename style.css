@@ -208,39 +208,18 @@ button {
 /* =========================
    SECCIÓN PAGO
    ========================= */
+
+/* Tarjetas de pagos card animacion */
 .payment-section {
     display: flex;
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
     max-width: 1100px;
     margin: 100px auto;
-    position: relative;
-    min-height: 100vh;
-}
-
-.payment-intro {
-    width: 45%;
-    position: sticky;
-    margin-bottom: 90px;
-}
-.payment-intro h2{
-    font-size: 32px;
-    font-weight: 400;
-}
-h5 {
-    font-family: 'Poppins', sans-serif; 
-    font-weight: 700;      
-    font-size: 32px;    
-}
-.precio-plan{
-    display: flex;
-    align-items: flex-end;
-
-}
-.precio-plan .mes{
-    color: #adadad;
-    font-size: 12px;
-    font-weight: 100;
+   
 }
 .payment-intro p {
     font-size: 1.2rem;
@@ -262,8 +241,16 @@ h5 {
     top: 80px;
     align-self: flex-start;
 }
-
-/* Tarjetas de pagos */
+.payment-intro {
+    width: 45%;
+    position: sticky;
+   
+}
+.payment-intro h2{
+    font-size: 32px;
+    font-weight: 400;
+    
+}
 .card {
     background-color: #ffffff;
     box-shadow: 0px 12px 32px 0px rgba(0, 0, 0, 0.04);
@@ -320,29 +307,92 @@ h5 {
 /* =========================
    SECCIÓN PLANES
    ========================= */
+/* =========================
+   SECCIÓN PLANES
+   ========================= */
 .planes {
     margin: 20px 0px;
     padding: 10px;
     width: 100%;
     background-color: #f0f0f0;
 }
+.info-card span{
+    background-color: #343a3d;
+    padding: 6px 16px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 400;
+    gap: 10px;
+    display: inline-block;
+    width: fit-content;
+    font-size: 10px;
+}
+h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    /* Este tamaño de 32px(tenia)y 700(tenia) la baje se verá grande si lo usas solo para 'Precios de Lanzamiento' */
+    /* Pero se mantiene porque es un estilo global y podría usarse en otros sitios. */
+    font-size: 30px;
+}
+
+/* COMENTADO: Esta clase (.precio-plan) ya no se usa en el HTML porque se reemplazó por .precio-proximamente. */
+/*
+.precio-plan{
+    display: flex;
+    align-items: flex-end;
+}
+*/
+
+/* --- ESTILOS AGREGADOS PARA EL MENSAJE PROVISORIO --- */
+/* NECESARIO: Estilo para el contenedor del mensaje de 'próximamente' */
+.precio-proximamente {
+    display: flex;
+    flex-direction: column; /* Apilamos el título y el 'próximamente' */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Espacio debajo del mensaje */
+    row-gap: 5px; /* Pequeño espacio entre el título y el mensaje */
+}
+
+/* NECESARIO: Estilo para el título del mensaje (ej: 'Precios de Lanzamiento') */
+.precio-proximamente h5 {
+    /* Sobreescribe el h5 global para el tamaño de este mensaje específico */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 20px; /* Tamaño más adecuado para un título provisional */
+    color: #149861;
+    margin: 0;
+}
+
+/* NECESARIO: Estilo para el mensaje '¡Próximamente!' */
+.precio-proximamente p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #4a4a4a;
+    margin: 0;
+    padding: 0;
+}
+/* --------------------------------------------------- */
+
 
 .card-planes {
     border: solid 1px #149861;
     border-radius: 16px;
     text-align: center;
-    width: 350px; 
+    width: 350px;
     padding: 0;
     display: flex;
     flex-direction: column;
-    overflow: hidden; 
+    overflow: hidden;
     background-color: #ffffff;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     
 }
+
 .card-planes:hover {
-    transform: scale(1.03); 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-planes h4 {
@@ -356,6 +406,7 @@ h5 {
     background-color: #EEEEEE;
 
 }
+
 .titulo-estrellas, .titulo-pro{
     border-bottom: 1px solid #149861;
     
@@ -369,12 +420,14 @@ h5 {
     gap: 10px;
     background-color: #149861;
 }
+
 .titulo-estrellas h4, .titulo-pro h4{
     border-bottom: 0;
-    background-color: unset; /* Corregido: 'none' no es un valor CSS válido para background-color */
+    background-color: unset;
     color: white;
     background-color: #149861;
 }
+
 .info-card {
     margin: 30px 0px;
     flex-grow: 1;
@@ -382,25 +435,29 @@ h5 {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    padding: 0px 24px; 
-    
+    padding: 0px 24px;
 }
 
-
-
+/* AJUSTADO: Esta regla ahora apunta al primer <p> DESPUÉS del nuevo .precio-proximamente (el párrafo de descripción del plan). */
+/* Los estilos originales eran para la "Promoción/Meses Gratis" y ya no son adecuados para la descripción. */
 .info-card p:first-of-type {
-    font-size: 12px;
-    color: #adadad;
-    margin-bottom: 15px;
-    margin-top: 10px;
+    /* Estilos base de la descripción del plan (no la promo) */
+    font-size: 14px;
+    color: #888; /* Color neutro para la descripción corta */
+    margin-top: 15px; /* Separación después del mensaje de 'próximamente' */
+    margin-bottom: 15px; /* Separación antes de la lista */
 }
 
+/* COMENTADO: Esta regla apuntaba al segundo <p> (la descripción del plan) y aplicaba estilos incorrectos. Ahora el segundo <p> es un elemento diferente o ya no existe. */
+/*
 .info-card p:nth-of-type(2) {
     font-size: 14px;
     color: #149861;
-    padding: 10px; 
+    padding: 10px;
     margin: 0;
 }
+*/
+
 .info-card ul{
     display: flex;
     flex-direction: column;
@@ -411,20 +468,22 @@ h5 {
 .info-card ul li {
     display: flex;
     flex-direction: row;
-    padding: 10px 0px; 
+    padding: 10px 0px;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
     align-content: center;
-    column-gap: 10px; 
+    column-gap: 10px;
     font-size: 14px;
     font-family: "Poppins", sans-serif;
 }
+
 .info-card ul li img {
     flex-shrink: 0;
     width: 16px;
     height: 16px;
 }
+
 .info-card button {
     display: flex;
     width: 90%;
@@ -464,7 +523,7 @@ h5 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch; 
+    align-items: stretch;
     gap: 20px;
     margin: 50px auto;
     
@@ -476,22 +535,23 @@ h5 {
    ========================= */
 /* Estilos generales de la sección */
 .section-info {
-    padding: 80px 0;
+    padding: 10px 15px;
     
 }
 
 .contenedor-info {
-    max-width: 90%;
-    margin: 0 auto;
+    max-width: 80%;
+    margin: 10px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 40px;
-    padding: 0 20px;
+   
 }
 
 .info-texto {
-    width: 30%; 
+    width: 50%; 
+    
 }
 
 .info-texto h2 {
@@ -568,7 +628,7 @@ transparent 0%, black 10%, black 90%, transparent 100%);
 
 .testimonios h2 {
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 500;
   color: #111;
   margin-bottom: 40px;
   max-width: 800px;
@@ -651,7 +711,7 @@ transparent 0%, black 5%, black 90%, transparent 100%);
 
 /* Pausar animación al hover */
 .carousel-testimonio:hover {
-  animation-play-state: paused;
+  animation-play-state:paused;
 }
 
 
@@ -692,12 +752,13 @@ transparent 0%, black 5%, black 90%, transparent 100%);
     margin: 20px auto;
 }
 .button-nuestra-app button{
-    width: 500px;
+    width: 400px;
     margin: 0px 50px;
+    cursor: pointer;
 }
 .button-nuestra-app button a{
     font-size: 14px;
-    font-weight: bold;
+    font-weight:bold;
 }
 .button-nuestra-app button:nth-child(2){
     border: solid 1px rgb(255, 255, 255);
@@ -714,6 +775,17 @@ transparent 0%, black 5%, black 90%, transparent 100%);
 .proximamente{
     display: flex;
     justify-content: center;
+}
+.info-texto span{
+    background-color: #343a3d;
+    padding: 6px 16px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 400;
+    gap: 10px;
+    display: inline-block;
+    width: fit-content;
+    
 }
 .contenedor-proxi{
     margin: 50px auto;
@@ -734,19 +806,16 @@ video{
     display: block;
     object-fit: cover;
 }
+.texto-proxi .titulo-proxi{
+display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .texto-proxi{
     width: 800px;
+
 }
-.info-texto .proximamente, .proximamente-torneos{
-    background-color: #343A3D;
-    padding: 6px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 400;
-    text-align: center;
-    display:inline-block;
-    color: #EEEEEE;
-}
+
 .texto-proxi h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -831,13 +900,14 @@ video{
 
 /* Marco del video (el área negra 16:9) */
 .marco-video {
-    width: 100%;
-    padding-top: 56.25%; 
-    background-color: #000;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 
@@ -851,8 +921,27 @@ video{
     
 }
 
+.overlay-mensaje {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 10px;
+}
+.marco-video.mostrar-texto .overlay-mensaje {
+  opacity: 1;
+}
 
-
+.marco-video.mostrar-texto .icono-youtube {
+  opacity: 0.2;
+}
 .info-video {
     padding: 20px;
 }
@@ -877,9 +966,11 @@ video{
     max-width: 200px;
 
 }
-/* preguntas frecuentes*/
+
 
 /* preguntas frecuentes*/
+
+
 .faq-section {
     padding: 60px 0;
     background-color: #f7f7f7; 
@@ -1027,9 +1118,7 @@ video{
             transparent 100%
         );
     }
-    .info-texto {
-        width: 50%; 
-    }
+
 } 
 
 /* ======== Mobile Styles ======== */
@@ -1141,25 +1230,65 @@ video{
     }
 
     /* Payment section responsive */
-    .payment-section {
-        flex-direction: column;
-        width: 100%;
-        padding: 0 15px;
-        margin: 50px auto;
+
+  /* --- Mantener visible el título y texto --- */
+ 
+.payment-section {
+        flex-direction: column; /* Apila el intro y el stack de tarjetas */
+        align-items: center; /* Centra los elementos hijos (payment-intro y card-stack-container) */
+        width: 100%; /* Asegura que ocupe todo el ancho para un mejor centrado */
+        padding: 10px 0; /* Ajusta el padding si es necesario */
     }
-    .card-stack-container {
-        position: relative;
-        width: 100%;
-        position: static;
-        z-index: 0;
-        margin-top:  300px;
-    }
-    .payment-intro{
-      position: sticky;
+
+    /* --- Mantener visible el título y texto --- */
+    .payment-intro {
+        position: static; /* Quita el sticky en móvil, si prefieres que se desplace */
+        /* Si quieres mantenerlo sticky, asegúrate de que no cause problemas con el scroll y el centrado */
+        top: unset; 
         z-index: 10;
-        background-color: rgb(255, 255, 255);
-        width: 100%;
+        background: #fff;
+        padding: 40px 20px 30px; /* Ajusta el padding para que no sea solo top/bottom */
+        text-align: center;
+        width: 90%; /* Ajusta el ancho para que no sea muy estrecho */
+        margin-bottom: 30px; /* Añade un margen inferior para separarlo de las tarjetas */
     }
+
+    .payment-intro h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        transition: all 0.5s ease;
+    }
+
+    .payment-intro p {
+        font-size: 1rem;
+        color: #555;
+        transition: all 0.5s ease;
+    }
+
+    /* --- Contenedor de las cards --- */
+    .card-stack-container {
+        position: relative; /* Sobrescribe el sticky si estaba */
+        height: auto !important; /* Mantiene tu anulación de altura */
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: center; /* Centra horizontalmente las .card (si tienen un ancho menor al contenedor) */
+        justify-content: flex-start; /* Alinea al inicio verticalmente (o center si quieres espacio equitativo) */
+        padding-bottom: 60px;
+        width: 90%; /* Dale un ancho explícito para que ocupe espacio y pueda centrarse */
+        margin: 0 auto; /* Importante para centrar el card-stack-container dentro de .payment-section */
+    }
+
+    .card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        position: relative;
+        top: unset;
+        width: 100%; /* Asegura que la tarjeta ocupe el 100% del card-stack-container */
+        max-width: 400px;
+    }
+
 
     /* Planes responsive */
     .contenedor-planes {
@@ -1174,14 +1303,19 @@ video{
     .contenedor-info {
         flex-direction: column;
         gap: 30px;
+        flex-direction: column;
+        gap: 30px;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 100%;
     }
-    .info-texto, .contenedor-info-card {
+    
+    .contenedor-info-card, .info-texto{
         width: 100%;
     }
     .contenedor-proxi {
-        /* Permite que los elementos se apilen verticalmente y ocupen todo el ancho */
-        flex-direction: column; 
-        gap: 30px; /* Reducir el espacio entre elementos */
+    
+        gap: 30px; 
     }
 
     /* HACER EL VIDEO 100% RESPONSIVE */
@@ -1222,8 +1356,8 @@ video{
         flex: 1 1 100% !important; 
         min-width: unset; /* Anular el min-width */
     }
-}
 
+}
 /* Mostrar menú cuando esté activo */
 .nav-links.active {
     display: block;
@@ -1337,12 +1471,12 @@ footer .logos img{
 }
 
 .instagram-btn {
-    background-color: #E1306C; /* Color de Instagram */
+    background-color: #8b8b8b; /* Color de Instagram */
     color: white;
 }
 
 .whatsapp-btn {
-    background-color: #25D366; /* Color de WhatsApp */
+    background-color: #149861; /* Color de WhatsApp */
     color: white;
 }
 

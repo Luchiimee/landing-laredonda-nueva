@@ -3,10 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // =======================================
     // LÓGICA DEL POP-UP (MODAL)
     // =======================================
-
     const modal = document.getElementById('modal-plataforma');
-    const btnRegistro = document.getElementById('btn-plataforma-reg'); // Botón principal (Hero)
-    const btnFooter = document.getElementById('btn-plataforma-footer'); // Botón del Footer
+    const btnRegistro = document.getElementById('btn-plataforma-reg');
+    const btnFooter = document.getElementById('btn-plataforma-footer');
     const spanCerrar = document.getElementById('cerrar-modal');
 
     function abrirModal() {
@@ -24,12 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (btnRegistro) btnRegistro.addEventListener('click', abrirModal);
-    if (btnFooter) {
-        btnFooter.addEventListener('click', (e) => {
-            e.preventDefault();
-            abrirModal();
-        });
-    }
+    if (btnFooter) btnFooter.addEventListener('click', (e) => {
+        e.preventDefault();
+        abrirModal();
+    });
     if (spanCerrar) spanCerrar.addEventListener('click', cerrarModal);
     if (modal) {
         window.addEventListener('click', (event) => {
@@ -38,68 +35,82 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =======================================
-    // LÓGICA DEL HEADER QUE SE OCULTA
+    // HEADER QUE SE OCULTA AL SCROLLEAR
     // =======================================
     let lastScrollY = window.scrollY;
     const header = document.querySelector('header');
 
     function hideOnScroll() {
         const currentScrollY = window.scrollY;
-
         if (currentScrollY > lastScrollY && currentScrollY > header.offsetHeight) {
             header.classList.add('header-hidden');
         } else {
             header.classList.remove('header-hidden');
         }
-
         lastScrollY = currentScrollY;
     }
 
-      // --- Lógica de las Tarjetas Apilables (Sección de Pagos) ---
+    // =======================================
+    // LÓGICA DE LAS TARJETAS (SECCIÓN PAGOS)
+    // =======================================
     const cards = document.querySelectorAll('.card');
     const cardStackContainer = document.querySelector('.card-stack-container');
     const cardHeight = 700;
-
-    if (cardStackContainer) {
-        const cardRealHeight = cards[0].offsetHeight;
-  const spacing = 200; // espacio entre cards durante el scroll
-  cardStackContainer.style.height = `${cards.length * (cardRealHeight + spacing)}px`;
-
-    }
-
     let activeCardIndex = 0;
 
-    function updateActiveCard() {
-        if (!cardStackContainer || cards.length === 0) return;
+    // Solo aplicar animación si es escritorio
+    if (window.innerWidth > 768 && cardStackContainer && cards.length > 0) {
 
-        const viewportHeight = window.innerHeight;
-        const containerTop = cardStackContainer.getBoundingClientRect().top;
+        const cardRealHeight = cards[0].offsetHeight;
+        const spacing = 200;
+        cardStackContainer.style.height = `${cards.length * (cardRealHeight + spacing)}px`;
 
-        let newIndex = Math.floor((-containerTop + viewportHeight / 2) / cardHeight);
-        newIndex = Math.max(0, Math.min(cards.length - 1, newIndex));
-
-        if (newIndex === activeCardIndex) return;
-
-        const currentCard = cards[activeCardIndex];
-        currentCard.style.opacity = '0';
-        currentCard.style.transform = 'translateY(50px)';
-        currentCard.style.zIndex = '1';
-
-        const newCard = cards[newIndex];
-        newCard.style.opacity = '1';
-        newCard.style.transform = 'translateY(0)';
-        newCard.style.zIndex = '2';
-
-        activeCardIndex = newIndex;
-    }
-
-    if (cards.length > 0) {
+        // Mostrar la primera card
         cards[0].style.opacity = '1';
         cards[0].style.transform = 'translateY(0)';
         cards[0].style.zIndex = '2';
+
+        function updateActiveCard() {
+            const viewportHeight = window.innerHeight;
+            const containerTop = cardStackContainer.getBoundingClientRect().top;
+
+            let newIndex = Math.floor((-containerTop + viewportHeight / 2) / cardHeight);
+            newIndex = Math.max(0, Math.min(cards.length - 1, newIndex));
+
+            if (newIndex === activeCardIndex) return;
+
+            const currentCard = cards[activeCardIndex];
+            currentCard.style.opacity = '0';
+            currentCard.style.transform = 'translateY(50px)';
+            currentCard.style.zIndex = '1';
+
+            const newCard = cards[newIndex];
+            newCard.style.opacity = '1';
+            newCard.style.transform = 'translateY(0)';
+            newCard.style.zIndex = '2';
+
+            activeCardIndex = newIndex;
+        }
+
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(updateActiveCard);
+        });
+
+    } else if (window.innerWidth <= 768 && cards.length > 0 && cardStackContainer) {
+        // Vista móvil → mostrar todas las cards visibles, sin animación
+        cards.forEach(card => {
+            card.style.opacity = '1';
+            card.style.transform = 'none';
+            card.style.transition = 'none';
+            card.style.position = 'relative';
+            card.style.zIndex = '1';
+        });
+        cardStackContainer.style.height = 'auto';
     }
 
-    // --- Lógica del Menú Hamburguesa ---
+    // =======================================
+    // MENÚ HAMBURGUESA
+    // =======================================
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.querySelector(".nav-links");
 
@@ -109,10 +120,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Lógica del Acordeón (FAQ) ---
+    // =======================================
+    // ACORDEÓN (FAQ)
+    // =======================================
     const acordeonHeaders = document.querySelectorAll('.acordeon-header');
-
     const primerItem = document.querySelector('.acordeon-item.abierta');
+
     if (primerItem) {
         const content = primerItem.querySelector('.acordeon-contenido');
         content.style.maxHeight = content.scrollHeight + "px";
@@ -145,59 +158,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-   /* =======================================
-   CARRUSEL DE TESTIMONIOS (igual al carousel-track)
-======================================= */
-const carouselTestimonio = document.querySelector(".carousel-testimonio");
+    // =======================================
+    // CARRUSEL DE TESTIMONIOS
+    // =======================================
+    const carouselTestimonio = document.querySelector(".carousel-testimonio");
 
-if (carouselTestimonio) {
-    // Duplicamos el contenido completo una sola vez
-    carouselTestimonio.innerHTML += carouselTestimonio.innerHTML;
+    if (carouselTestimonio) {
+        carouselTestimonio.innerHTML += carouselTestimonio.innerHTML;
+        let pos1 = 0, speed1 = 0.6, paused1 = false;
+        let resetLimit = carouselTestimonio.scrollWidth / 2;
 
-    let pos1 = 0;
-    const speed1 = 0.6;
-    let paused1 = false;
-
-    // Ancho de la mitad (la parte visible original)
-    let resetLimit = carouselTestimonio.scrollWidth / 2;
-
-    function moveTestimonios() {
-        if (!paused1) {
-            pos1 -= speed1;
-
-            // Reinicio exacto al terminar el primer bloque
-            if (Math.abs(pos1) >= resetLimit) pos1 = 0;
-
-            carouselTestimonio.style.transform = `translateX(${pos1}px)`;
+        function moveTestimonios() {
+            if (!paused1) {
+                pos1 -= speed1;
+                if (Math.abs(pos1) >= resetLimit) pos1 = 0;
+                carouselTestimonio.style.transform = `translateX(${pos1}px)`;
+            }
+            requestAnimationFrame(moveTestimonios);
         }
-        requestAnimationFrame(moveTestimonios);
+
+        carouselTestimonio.addEventListener("mouseenter", () => (paused1 = true));
+        carouselTestimonio.addEventListener("mouseleave", () => (paused1 = false));
+        window.addEventListener('resize', () => {
+            resetLimit = carouselTestimonio.scrollWidth / 2;
+        });
+
+        moveTestimonios();
     }
 
-    // Pausar en hover
-    carouselTestimonio.addEventListener("mouseenter", () => (paused1 = true));
-    carouselTestimonio.addEventListener("mouseleave", () => (paused1 = false));
-
-    // Recalcular si cambia el tamaño de pantalla (para que no se desincronice en mobile)
-    window.addEventListener('resize', () => {
-        resetLimit = carouselTestimonio.scrollWidth / 2;
-    });
-
-    moveTestimonios();
-}
-
-
-    /* =======================================
-       CARRUSEL DE IMÁGENES (section-info)
-       → mismo sistema infinito que testimonios
-    ======================================= */
+    // =======================================
+    // CARRUSEL DE IMÁGENES (section-info)
+    // =======================================
     const carouselTrack = document.querySelector(".carousel-track");
 
-    if (carouselTrack) {
+    if (carouselTrack && window.innerWidth > 768) {
         carouselTrack.innerHTML += carouselTrack.innerHTML;
-
-        let pos2 = 0;
-        const speed2 = 0.6;
-        let paused2 = false;
+        let pos2 = 0, speed2 = 0.6, paused2 = false;
 
         function moveTrack() {
             if (!paused2) {
@@ -210,21 +206,25 @@ if (carouselTestimonio) {
 
         carouselTrack.addEventListener("mouseenter", () => (paused2 = true));
         carouselTrack.addEventListener("mouseleave", () => (paused2 = false));
-
         moveTrack();
     }
 
-    // --- Scroll optimizado ---
-    let isScrolling = false;
+    // =======================================
+    // HEADER SCROLL
+    // =======================================
     window.addEventListener('scroll', () => {
         requestAnimationFrame(hideOnScroll);
+    });
+});
 
-        if (!isScrolling) {
-            window.requestAnimationFrame(() => {
-                updateActiveCard();
-                isScrolling = false;
-            });
-        }
-        isScrolling = true;
+
+// =======================================
+// EFECTO EN LOS MARCOS DE VIDEO
+// =======================================
+document.querySelectorAll('.marco-video').forEach(marco => {
+    marco.addEventListener('click', () => {
+        if (marco.classList.contains('mostrar-texto')) return;
+        marco.classList.add('mostrar-texto');
+        setTimeout(() => marco.classList.remove('mostrar-texto'), 2500);
     });
 });
