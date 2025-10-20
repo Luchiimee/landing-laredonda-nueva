@@ -228,3 +228,18 @@ document.querySelectorAll('.marco-video').forEach(marco => {
         setTimeout(() => marco.classList.remove('mostrar-texto'), 2500);
     });
 });
+window.addEventListener('load', () => {
+    const videoElemento = document.getElementById('video-proximamente');
+    
+    // Si el video existe y se está reproduciendo (lo cual hace el webview)
+    if (videoElemento && !videoElemento.paused) {
+        // 1. Pausamos el video de inmediato.
+        videoElemento.pause(); 
+        
+        // 2. Si es necesario, también podemos asegurarnos de que no esté en pantalla completa.
+        // Aunque generalmente con el pause es suficiente.
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        }
+    }
+});

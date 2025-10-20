@@ -579,7 +579,16 @@ h5 {
     width: 20px;
     height: 20px;
 }
-
+.info-texto .proximamente{
+  background-color: #343a3d;
+    padding: 6px 16px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 400;
+    gap: 10px;
+    display: inline-block;
+    width: fit-content;
+}
 /* ---------------------------------
    Estilos del Carrusel de imágenes
    --------------------------------- */
