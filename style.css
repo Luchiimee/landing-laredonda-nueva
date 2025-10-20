@@ -1250,7 +1250,7 @@ display: flex;
         padding: 40px 20px 30px; /* Ajusta el padding para que no sea solo top/bottom */
         text-align: center;
         width: 90%; /* Ajusta el ancho para que no sea muy estrecho */
-        margin-bottom: 30px; /* Añade un margen inferior para separarlo de las tarjetas */
+        margin: 10px auto; /* Añade un margen inferior para separarlo de las tarjetas */
     }
 
     .payment-intro h2 {
